@@ -1,4 +1,4 @@
-/// <reference path="./typings/tsd.d.ts" />
+/// <ref=erence path="./typings/tsd.d.ts" />
 //import {initializeModels} from "./sturegModule";
 
 
@@ -10,11 +10,20 @@ let bcrypt = require("bcrypt-nodejs");
 let SALT_FACTOR = 10;
 
 var cors = require('cors');
-let connection = mongoose.connect("mongodb://localhost/stuinfo");
+// let connection = mongoose.connect("mongodb://localhost/stuinfo");
+let URL = "mongodb://malikasinger:pakistan@ds037095.mongolab.com:37095/inzi"
+var options = {
+  db: { native_parser: true },
+  user: 'malikasinger',
+  pass: 'pakistan'
+}
+
+
+let connection = mongoose.connect(URL);
 
 let app = express();
 
-app.use(cors());
+app.use(cors());    
 
 let staticFilesPath = path.resolve(__dirname, "static");
 app.use(express.static(staticFilesPath));

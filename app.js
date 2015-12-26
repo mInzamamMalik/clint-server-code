@@ -1,4 +1,4 @@
-/// <reference path="./typings/tsd.d.ts" />
+/// <ref=erence path="./typings/tsd.d.ts" />
 //import {initializeModels} from "./sturegModule";
 var express = require("express");
 var mongoose = require("mongoose");
@@ -7,7 +7,14 @@ var bodyparser = require("body-parser");
 var bcrypt = require("bcrypt-nodejs");
 var SALT_FACTOR = 10;
 var cors = require('cors');
-var connection = mongoose.connect("mongodb://localhost/stuinfo");
+// let connection = mongoose.connect("mongodb://localhost/stuinfo");
+var URL = "mongodb://malikasinger:pakistan@ds037095.mongolab.com:37095/inzi";
+var options = {
+    db: { native_parser: true },
+    user: 'malikasinger',
+    pass: 'pakistan'
+};
+var connection = mongoose.connect(URL, options);
 var app = express();
 app.use(cors());
 var staticFilesPath = path.resolve(__dirname, "static");
